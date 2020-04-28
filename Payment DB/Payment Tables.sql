@@ -5,7 +5,10 @@ CREATE TABLE EPaymentTokens(
 	[PaymentMetaData] [varchar](3000) NULL,
 	[MerchantId] bigint NULL,
 	[InvoiceId] [bigint] NULL,
-	[Amount] [decimal](18, 3) NULL,
+	[InvoiceAmount] [decimal](18, 3) NULL,-- Actual Order Amount for the Item
+	-- It is essentially a bill that the customer has to pay according to seller's payment terms and conditions. In simple words, while sales order confirms a purchase, an invoice specifies the payment for that purchase. An invoice is usually sent before the products have been delivered to the buyer. OrderId is the Buyer collection of items for Purchase and InvoiceId is the Buyer Collection of amount for the order.
+	[Amount] [decimal](18, 3) NULL,-- Cumulative Amount= InvoiceAmount+ EPaymentFeeConfigurations.FeeAmount
+	[EPaymentFeeConfigId] [int],
 	[PortalLoginId] int NULL,
 	[Paidby] [nvarchar](200) NULL,--Anonymous payer 
 	--[OPDetailId] [int] NULL,
