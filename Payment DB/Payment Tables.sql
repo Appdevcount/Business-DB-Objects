@@ -27,12 +27,10 @@ Create Table EPaymentFeeConfigurations
 CREATE TABLE EPaymentTransactions
 (--Fields with Auth as prefix is Electronic Authorizer like KNET,VISA MC Responses
 	[EPaymentTranId] [int] NOT NULL,
-	[TransId] [bigint] NULL,
+	-- [TransId] [bigint] NULL,
 	[AuthEPaymentId] [bigint] NULL,
 	[Status] [varchar](20) NULL,--Success, Cancelled, Failed
 	[InvoiceId] [bigint] NULL,
-	[TranStartTime] [datetime] NULL,
-	[TranEndTime] [datetime] NULL,
 	[ClientIPAddress] [varchar](15) NULL,
 	[SessionId] [varchar](100) NULL,
 	--[LogInPortId] [int] NULL,
@@ -53,6 +51,8 @@ CREATE TABLE EPaymentTransactions
 	[CheckId] [int] NULL,
 	[AuthTranId] [int] NULL,
 	[TranDate] [datetime] NULL,
+	[TranStartTime] [datetime] NULL,
+	[TranEndTime] [datetime] NULL,
 	--[CreatedBy] [varchar](30) NULL,
 	[DateModified] [datetime] NULL,
 	[ModifiedBy] [varchar](30) NULL,
@@ -64,5 +64,13 @@ CREATE TABLE EPaymentTransactions
 	[EPTokenId]  BIGINT NULL,
 	--[ReferenceId] [int] NULL,
 	--[ReferenceType] [varchar](50) NULL,
+
+	
+	[ReferenceNumber] [varchar](50) NULL,--for Anonymous Payer
+	[PayeeMobileNum] [varchar](100) NULL,
+	[PayeeEmail] [varchar](100) NULL,
+	[PaymentInitiatorAppSource] [varchar](100) NULL
+
+
 	)
 
